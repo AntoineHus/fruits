@@ -16,7 +16,7 @@ $reqAddEpisode = $bdd->prepare("INSERT INTO series_episodes
 
 $reqAllFiles = $bdd->prepare("SELECT id, nom, chemin_complet
 	FROM fichiers
-	WHERE LOWER(chemin_complet) LIKE '%/serie%' AND supprime = 0 AND type <> 'dossier' AND date_depose > DATE_SUB(NOW(), INTERVAL 2 DAY) AND id NOT IN (SELECT fichier FROM (SELECT fichier FROM series_episodes) AS rf)");
+	WHERE (LOWER(chemin_complet) LIKE '%/serie%' OR LOWER(chemin_complet) LIKE '%/anime%') AND supprime = 0 AND type <> 'dossier' AND date_depose > DATE_SUB(NOW(), INTERVAL 2 DAY) AND id NOT IN (SELECT fichier FROM (SELECT fichier FROM series_episodes) AS rf)");
 $reqAllFiles->execute();
 $files = $reqAllFiles->fetchAll();
 $reqAllFiles->closeCursor();
