@@ -14,7 +14,7 @@ $app->after(function (Request $request, Response $response) {
 });
 
 $app->get('/films', function() use ($app) {
-    $films = $app['db']->fetchAll("SELECT films.tmdbid, title, titlefr, titleen, titlefrslug, YEAR(release_date) AS date, production, popularity, release_date
+    $films = $app['db']->fetchAll("SELECT films.tmdbid, title, titlefr, titleen, titlefrslug, YEAR(release_date) AS date, production, popularity, release_date, genres
     FROM films
     LEFT JOIN filmsf
     ON filmsf.tmdbid = films.tmdbid

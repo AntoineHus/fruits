@@ -53,14 +53,39 @@
             Serveurs
         </a>
         <div class="cat" ng-hide="page == 'serveurs'">
-            Tri :<span class="select">
-                  <select ng-model="rtri" ng-init="rtri = 'popularity'">
+            Tri :<span class="select"> 
+                  <select ng-model="rtri" ng-init="rtri = 'popularity'" style="width: 110px; padding-right: 0px">
                     <option value="popularity">Popularité</option>
                     <option value="title">Nom</option>
                     <option value="release_date">Date de sortie</option>
                   </select>
                 </span>
         </div>
+        <div class="cat" ng-hide="page != 'films'">
+            Genre :<span class="select">
+                <select ng-model="gfilter" ng-init="gfilter = ''">
+		    <option value="">Tous</option>
+		    <option value="Action">Action</option>
+		    <option value="Aventure">Aventure</option>
+		    <option value="Comedie">Comedie</option>
+		    <option value="Crime">Crime</option>
+		    <option value="Documentaire">Documentaire</option>
+		    <option value="Drame">Drame</option>
+		    <option value="Familial">Familial</option>
+		    <option value="Fantastique">Fantastique</option>
+		    <option value="Film Noir">Film Noir</option>
+		    <option value="Guerre">Guerre</option>
+		    <option value="Horreur">Horreur</option>
+		    <option value="Musical">Musical</option>
+		    <option value="Mystere">Mystere</option>
+		    <option value="Romance">Romance</option>
+		    <option value="Science-Fiction">Science-Fiction</option>
+		    <option value="Suspense">Suspense</option>
+		    <option value="Thriller">Thriller</option>
+		    <option value="Western">Western</option>
+		</select>
+	    </span>
+	</div>
     </div>
     <div id="options" class="hide-for-small-only">
     	<form ng-submit="search()">

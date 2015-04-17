@@ -69,8 +69,8 @@ foreach ($films as $s) {
 	}
 	$in['titlefrslug'] = slug($in['titlefr']);
 	
-	copy('https://image.tmdb.org/t/p/original/' . $poster, '../api/data/films/poster/' . $s['tmdbid'] . '.jpg', $cxContext);
-    copy('https://image.tmdb.org/t/p/w300/' . $poster, '../api/data/films/poster/' . $s['tmdbid'] . '_w300.jpg', $cxContext);
+	copy('http://image.tmdb.org/t/p/original' . $poster, '../api/data/films/poster/' . $s['tmdbid'] . '.jpg', $cxContext);
+    copy('http://image.tmdb.org/t/p/w300' . $poster, '../api/data/films/poster/' . $s['tmdbid'] . '_w300.jpg', $cxContext);
 	
 	foreach ($fields as $f) {
 		$reqAddFilm->bindValue(':' . $f, $in[$f]);
